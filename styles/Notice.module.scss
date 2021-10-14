@@ -2,7 +2,7 @@
   width: 100%;
   list-style-type: none;
   display: grid;
-  grid-template-columns: 1fr 50px;
+  grid-template-columns: 1fr 80px;
   background: burlywood;
   border-radius: 30px;
   min-height: 135px;
@@ -16,6 +16,9 @@
     width: 100%;
     height: 100%;
     padding: 10px;
+    ul {
+      padding-left: 1rem;
+    }
   }
   &__time {
     position: absolute;
@@ -29,8 +32,34 @@
     font-weight: 600;
   }
   &__todo {
+    margin: 10px 0px;
     font-size: 1.2rem;
+    list-style-type: none;
+    padding: 5px;
+    background: #808080ad;
+    border-radius: 5px;
+    color: yellow;
+    display: flex;
+    align-items: center;
+    svg {
+      margin-right: 1rem;
+    }
   }
+  &__todo_active {
+    margin: 10px 0px;
+    font-size: 1.2rem;
+    list-style-type: none;
+    padding: 5px;
+    color: #05f505;
+    background: #808080ad;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    svg {
+      margin-right: 1rem;
+    }
+  }
+
   &__btnDelete {
     display: flex;
     justify-content: center;

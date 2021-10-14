@@ -5,6 +5,8 @@ import MyLink from './MyLink'
 import WindowSubmit from './WindowSubmit'
 import { BsFillPlusCircleFill } from "react-icons/bs";
 import {useState} from 'react'
+import { BsFillLightbulbFill, BsFillCheckSquareFill } from "react-icons/bs";
+
 
 
 export default function Notice({_id, title, timeInfo, todo=[], deleteNotice}) {
@@ -17,7 +19,10 @@ export default function Notice({_id, title, timeInfo, todo=[], deleteNotice}) {
                     <div className={styles.Notice__title}>{title}</div>
                     {timeInfo && <div className={styles.Notice__time}>{formatDistanceToNowStrict(Date.parse(timeInfo), { locale: ru })}</div>}
                     <ul>{newTodo.map((item,index)=>{
-                        return <li className={styles.Notice__todo} key={index}>{item.text}</li>
+                        return <li  className={item.progress? styles.Notice__todo_active : styles.Notice__todo } key={index}>
+                                {item.progress? <BsFillCheckSquareFill color="#05f505"/> : <BsFillLightbulbFill color="yellow"/>}
+                                {item.text}
+                            </li>
                     })}
                     </ul>
                 </MyLink>
