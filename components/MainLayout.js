@@ -1,6 +1,6 @@
 import Head from 'next/head'
 
-
+//wrapper для всех страниц
 function MainLayout({children, titlePage = "Todo"}) {
     return (
         <>

@@ -1,0 +1,5 @@
+export {default as ComeBack} from './ComeBack'
+export {default as MainLayout} from './MainLayout'
+export {default as MyLink} from './MyLink'
+export {default as Notice} from './Notice'
+export {default as WindowSubmit} from './WindowSubmit'

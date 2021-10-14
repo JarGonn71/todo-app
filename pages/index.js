@@ -1,18 +1,18 @@
-import styles from '../styles/Home.module.scss'
-import MyLink from '../components/MyLink'
-import MainLayout from '../components/MainLayout'
-import Notice from '../components/Notice'
-import { AiOutlinePlus } from "react-icons/ai";
 import {useState} from 'react'
+import { AiOutlinePlus } from "react-icons/ai";
 import axios from 'axios'
 
+import {MyLink, MainLayout, Notice} from '../components'
 
-export default function Home({data, notFound}) {
+import styles from '../styles/Home.module.scss'
+
+export default function Home({data}) {
+  //Получение с сервера даных
   const [listNotice, setListNotice] = useState(data)
 
+  //Функция удаления заметки
   const deleteNotice = async (id, setShowWindow) => {
     const newListNotice = listNotice.filter(item => item._id != id)
-    console.log(newListNotice)
     try{
         await axios.delete(`https://jargon-todo.herokuapp.com/api/notice/delete/${id}`).then(()=>{
             setShowWindow(false)
@@ -21,19 +21,23 @@ export default function Home({data, notFound}) {
       }catch(error){
           console.log(error)
       }
-}
+  }
+
+  //Массив из Заметок
+  const listNotices = listNotice.map((item, index) => { return <Notice key={item._id} {...item} deleteNotice={deleteNotice} /> })
 
   return (
-    <MainLayout>
+    <MainLayout titlePage = "Todo Home">
       <div className={styles.Home}>
+
         <div className={styles.Home__link}>
           <MyLink href={"/notice"}><AiOutlinePlus/> Добавить заметку </MyLink>
         </div>
+
         <div className={styles.Home__container}>
-            {listNotice.map((item, index) => {
-              return <Notice key={item._id} {...item} deleteNotice={deleteNotice} />
-            })}
+            {listNotices}
         </div>
+
       </div>
     </MainLayout>
     
@@ -48,7 +52,6 @@ export async function getServerSideProps(context) {
       notFound: true,
     }
   }
-
   return {
     props: {data}, // will be passed to the page component as props
   }
