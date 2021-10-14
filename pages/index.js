@@ -14,7 +14,7 @@ export default function Home({data, notFound}) {
     const newListNotice = listNotice.filter(item => item._id != id)
     console.log(newListNotice)
     try{
-        await axios.delete(`http://localhost:5000/api/notice/delete/${id}`).then(()=>{
+        await axios.delete(`https://jargon-todo.herokuapp.com/api/notice/delete/${id}`).then(()=>{
             setShowWindow(false)
             setListNotice(newListNotice)
         })
@@ -41,7 +41,7 @@ export default function Home({data, notFound}) {
 }
 
 export async function getServerSideProps(context) {
-  const res = await fetch(`http://localhost:5000/api/notice/`)
+  const res = await fetch(`https://jargon-todo.herokuapp.com/api/notice/`)
   const data = await res.json()
   if (!data) {
     return {

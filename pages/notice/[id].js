@@ -15,7 +15,7 @@ export default function Named({notice}) {
     
     async function updateTodo(options){
       try{
-        await axios.post(`http://localhost:5000/api/notice/update/${router.query.id}`, options)
+        await axios.post(`https://jargon-todo.herokuapp.com/api/notice/update/${router.query.id}`, options)
       }catch(error){
           console.log(error)
       }
@@ -100,7 +100,7 @@ export default function Named({notice}) {
 }
 
 export async function getServerSideProps(context) {
-    const res = await fetch(`http://localhost:5000/api/notice/${context.query.id}`)
+    const res = await fetch(`https://jargon-todo.herokuapp.com/notice/${context.query.id}`)
     const notice = await res.json()
   
 

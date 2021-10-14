@@ -54,7 +54,7 @@ export default function Notice() {
             }
         }
         try{
-            await axios.post('http://localhost:5000/api/notice/add', options)
+            await axios.post('https://jargon-todo.herokuapp.com/api/notice/add', options)
             .then(() => router.push('/') )
 
         }catch(error){
