@@ -13,4 +13,16 @@ a {
 
 * {
   box-sizing: border-box;
+  outline: none;
+}
+
+.Navbar {
+  background: #424255;
+  padding: 1.5rem;
+  margin-bottom: 1rem;
+  span {
+    font-size: 1.5rem;
+    font-weight: bolder;
+    color: white;
+  }
 }

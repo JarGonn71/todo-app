@@ -1,0 +1,16 @@
+.ComeBack {
+  margin-left: 1rem;
+  display: flex;
+
+  a {
+    display: flex;
+    align-items: center;
+    background: #8b5ef9;
+    color: white;
+    padding: 5px 20px;
+    border-radius: 10px;
+  }
+  svg {
+    margin-right: 10px;
+  }
+}
