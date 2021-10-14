@@ -100,7 +100,7 @@ export default function Named({notice}) {
 }
 
 export async function getServerSideProps(context) {
-    const res = await fetch(`https://jargon-todo.herokuapp.com/notice/${context.query.id}`)
+    const res = await fetch(`https://jargon-todo.herokuapp.com/api/notice/${context.query.id}`)
     const notice = await res.json()
   
 
